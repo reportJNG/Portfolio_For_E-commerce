@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "A propos",
+    "services": "Services",
+    "caseStudies": "Cas clients",
+    "blog": "Blog",
+    "contact": "Contact",
+    "menu": "Menu",
+    "bookCall": "Travailler avec moi"
+  },
+  "hero": {
+    "eyebrow": "Operateur e-commerce elite base en Algerie",
+    "name": "Walid Mostfaoui",
+    "title": "Strategiste E-Commerce & Growth Operator",
+    "tagline": "Je ne vends pas seulement des produits — je construis des machines a revenus.",
+    "primaryCta": "Travailler avec moi",
+    "secondaryCta": "Voir mes projets",
+    "scroll": "Defiler"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "heading": "Concu pour les marques qui veulent une croissance rentable, vite.",
+    "body": "De la validation produit a l'acquisition payante et l'optimisation boutique, chaque service relie la strategie au chiffre d'affaires."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Construisons quelque chose de rentable ensemble",
+    "body": "Envoyez un court message sur votre boutique, produit ou objectif de campagne. Walid vous repondra avec la prochaine etape la plus claire.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer",
+    "submitting": "Envoi...",
+    "success": "Message envoye. Walid vous repondra rapidement.",
+    "error": "Une erreur est survenue. Reessayez ou utilisez les liens de contact directs.",
+    "configError": "L'envoi du formulaire n'est pas encore configure. Ajoutez les variables Resend avant la mise en ligne."
+  },
+  "footer": {
+    "tagline": "Je ne vends pas seulement des produits — je construis des machines a revenus.",
+    "rights": "© 2025 Walid Mostfaoui"
+  }
+}

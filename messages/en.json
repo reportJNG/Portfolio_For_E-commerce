@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact",
+    "menu": "Menu",
+    "bookCall": "Work With Me"
+  },
+  "hero": {
+    "eyebrow": "Elite e-commerce operator based in Algeria",
+    "name": "Walid Mostfaoui",
+    "title": "E-Commerce Strategist & Growth Operator",
+    "tagline": "I don't just sell products — I build revenue machines.",
+    "primaryCta": "Work With Me",
+    "secondaryCta": "See My Work",
+    "scroll": "Scroll"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "heading": "Built for brands that want profitable growth, fast.",
+    "body": "From product validation to paid acquisition and store optimization, every service is designed to connect strategy with revenue."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's Build Something Profitable Together",
+    "body": "Send a short message about your store, product, or campaign goal. Walid will reply with the clearest next step.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit",
+    "submitting": "Sending...",
+    "success": "Message sent. Walid will get back to you shortly.",
+    "error": "Something went wrong. Please try again or use the direct contact links.",
+    "configError": "Contact delivery is not configured yet. Add Resend environment variables before going live."
+  },
+  "footer": {
+    "tagline": "I don't just sell products — I build revenue machines.",
+    "rights": "© 2025 Walid Mostfaoui"
+  }
+}
