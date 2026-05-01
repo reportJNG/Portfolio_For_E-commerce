@@ -56,13 +56,13 @@ function ParticleNetwork() {
     <group ref={groupRef}>
       <points>
         <bufferGeometry>
-          <bufferAttribute attach="attributes-position" count={particlePositions.length / 3} array={particlePositions} itemSize={3} />
+          <bufferAttribute attach="attributes-position" args={[particlePositions, 3]} />
         </bufferGeometry>
         <pointsMaterial color="#93C5FD" size={0.035} sizeAttenuation transparent opacity={0.8} />
       </points>
       <lineSegments>
         <bufferGeometry>
-          <bufferAttribute attach="attributes-position" count={linePositions.length / 3} array={linePositions} itemSize={3} />
+          <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
         </bufferGeometry>
         <lineBasicMaterial color="#60A5FA" transparent opacity={0.16} />
       </lineSegments>

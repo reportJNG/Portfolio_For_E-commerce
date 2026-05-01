@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { ArrowRight } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -11,8 +11,9 @@ export const metadata = {
   title: 'Blog'
 };
 
-export default function BlogPage({ params }: { params: { locale: Locale } }) {
-  unstable_setRequestLocale(params.locale);
+export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const categories = Array.from(new Set(blogStubs.map((post) => post.category)));
 
   return (
@@ -36,11 +37,17 @@ export default function BlogPage({ params }: { params: { locale: Locale } }) {
             {blogStubs.map((post) => (
               <Link
                 key={post.slug}
-                href={withLocale(params.locale, `/blog/${post.slug}`)}
+                href={withLocale(locale, `/blog/${post.slug}`)}
                 className="js-stagger-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card-glow"
               >
                 <div className="relative aspect-[16/8]">
-                  <Image src={post.image} alt={post.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="mb-4 flex items-center gap-2">

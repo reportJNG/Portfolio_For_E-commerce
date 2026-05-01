@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, Linkedin, Send, Twitter } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -17,30 +17,32 @@ export function generateStaticParams() {
   ]);
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = blogStubs.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = blogStubs.find((item) => item.slug === slug);
   return {
     title: post ? post.title : 'Blog'
   };
 }
 
-export default async function BlogPostPage({ params }: { params: { locale: Locale; slug: string } }) {
-  unstable_setRequestLocale(params.locale);
-  const post = blogStubs.find((item) => item.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const post = blogStubs.find((item) => item.slug === slug);
 
   if (!post) {
     notFound();
   }
 
   const mdx = await getMdxPost(post.slug);
-  const shareUrl = `https://walidmostfaoui.com/${params.locale}/blog/${post.slug}`;
+  const shareUrl = `https://walidmostfaoui.com/${locale}/blog/${post.slug}`;
 
   return (
     <main className="bg-white pt-28">
       <section className="section-padding">
         <div className="container">
           <Button asChild variant="outline" className="mb-8 rounded-full">
-            <Link href={withLocale(params.locale, '/blog')}>
+            <Link href={withLocale(locale, '/blog')}>
               <ArrowLeft className="h-4 w-4" />
               Back to blog
             </Link>

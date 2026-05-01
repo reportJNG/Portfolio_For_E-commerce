@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { ArrowRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -10,8 +10,9 @@ export const metadata = {
   title: 'Services'
 };
 
-export default function ServicesPage({ params }: { params: { locale: Locale } }) {
-  unstable_setRequestLocale(params.locale);
+export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <main className="bg-white pt-28">
@@ -50,15 +51,15 @@ export default function ServicesPage({ params }: { params: { locale: Locale } })
           </div>
           <div className="mt-10 grid gap-4 lg:grid-cols-4">
             {processSteps.map((item) => (
-              <div key={item.step} className="rounded-lg border border-white/10 bg-white/8 p-6">
+              <div key={item.step} className="rounded-lg border border-white/10 bg-white/10 p-6">
                 <span className="font-mono text-sm font-bold text-accent-glow">{item.step}</span>
                 <h3 className="mt-4 font-display text-2xl font-bold">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/68">{item.body}</p>
+                <p className="mt-3 text-sm leading-7 text-white/70">{item.body}</p>
               </div>
             ))}
           </div>
           <Button asChild className="mt-10 rounded-full">
-            <Link href={withLocale(params.locale, '/contact')}>
+            <Link href={withLocale(locale, '/contact')}>
               Book a Call <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

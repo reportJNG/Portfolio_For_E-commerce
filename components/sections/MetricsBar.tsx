@@ -17,7 +17,7 @@ export function MetricsBar() {
                 decimals={metric.value.includes('.') ? 1 : 0}
               />
             </div>
-            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/58">{metric.label}</p>
+            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/60">{metric.label}</p>
           </div>
         ))}
       </div>

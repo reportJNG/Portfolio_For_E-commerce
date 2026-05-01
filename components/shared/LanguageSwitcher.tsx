@@ -25,7 +25,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
   return (
     <div
       className={cn(
-        'flex items-center rounded-full border border-slate-200 bg-white/85 p-1 shadow-sm backdrop-blur',
+        'flex items-center rounded-full border border-slate-200 bg-white/90 p-1 shadow-sm backdrop-blur',
         compact && 'w-full justify-between rounded-lg'
       )}
       aria-label="Language switcher"

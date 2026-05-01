@@ -45,18 +45,18 @@ export async function About() {
           <div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent-glow/40" />
           <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-xl" />
           <div className="relative z-10 flex h-full min-h-[360px] flex-col justify-between">
-            <div className="flex items-center gap-3 text-sm font-semibold text-white/72">
+            <div className="flex items-center gap-3 text-sm font-semibold text-white/70">
               <Globe2 className="h-5 w-5 text-accent-glow" />
               {profile.location}
             </div>
             <div className="grid gap-3">
               {profile.languages.map((language) => (
-                <div key={language} className="rounded-lg border border-white/10 bg-white/8 p-4 backdrop-blur">
+                <div key={language} className="rounded-lg border border-white/10 bg-white/10 p-4 backdrop-blur">
                   <span className="font-semibold">{language}</span>
                 </div>
               ))}
             </div>
-            <div className="font-mono text-sm text-white/56">Global growth systems / DZ base</div>
+            <div className="font-mono text-sm text-white/60">Global growth systems / DZ base</div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/react';
 
 import '@/app/globals.css';
@@ -13,7 +13,7 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { CustomCursor } from '@/components/shared/CustomCursor';
 import { PageTransition } from '@/components/shared/PageTransition';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { defaultLocale, getDirection, locales, type Locale } from '@/lib/config';
+import { defaultLocale, getDirection, isLocale, locales } from '@/lib/config';
 import { dmSans, jetBrainsMono, syne } from '@/lib/fonts';
 
 export const metadata: Metadata = {
@@ -48,10 +48,11 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = locales.includes(params.locale) ? params.locale : defaultLocale;
-  unstable_setRequestLocale(locale);
+  const { locale: requestedLocale } = await params;
+  const locale = isLocale(requestedLocale) ? requestedLocale : defaultLocale;
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
@@ -71,7 +72,7 @@ export default async function LocaleLayout({
                 <Navbar />
                 <PageTransition>{children}</PageTransition>
                 <Footer />
-                <Analytics />
+                {process.env.NODE_ENV === 'production' ? <Analytics /> : null}
               </LenisProvider>
             </NextIntlClientProvider>
           </TooltipProvider>

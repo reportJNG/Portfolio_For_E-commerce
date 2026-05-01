@@ -25,7 +25,7 @@ export function getDirection(locale: Locale) {
   return rtlLocales.includes(locale) ? 'rtl' : 'ltr';
 }
 
-export function withLocale(locale: Locale, href: string) {
+export function withLocale(locale: string, href: string) {
   if (href === '/') {
     return `/${locale}`;
   }

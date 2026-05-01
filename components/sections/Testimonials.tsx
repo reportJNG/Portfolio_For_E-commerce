@@ -35,7 +35,7 @@ export function Testimonials() {
           {testimonials.concat(testimonials).map((item, itemIndex) => (
             <motion.article
               key={`${item.name}-${itemIndex}`}
-              className="min-w-[300px] rounded-lg border border-white/10 bg-white/8 p-6 backdrop-blur sm:min-w-[380px]"
+              className="min-w-[300px] rounded-lg border border-white/10 bg-white/10 p-6 backdrop-blur sm:min-w-[380px]"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -46,7 +46,7 @@ export function Testimonials() {
                   <Star key={starIndex} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <p className="text-lg leading-8 text-white/78">&ldquo;{item.quote}&rdquo;</p>
+              <p className="text-lg leading-8 text-white/80">&ldquo;{item.quote}&rdquo;</p>
               <div className="mt-6 font-semibold">
                 {item.name}, {item.country} <span aria-hidden="true">{item.flag}</span>
               </div>

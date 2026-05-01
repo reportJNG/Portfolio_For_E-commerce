@@ -1,5 +1,44 @@
 
 > walid-portfolio@1.0.0 dev
-> next dev --port 3000
+> next dev --port 3001
 
-[?25h
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.42.223:3001
+
+ ✓ Starting...
+ ✓ Ready in 2.2s
+ ✓ Compiled /middleware in 250ms (131 modules)
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 4.3s (2932 modules)
+ GET /en 200 in 5862ms
+ GET /en 200 in 534ms
+ GET /en 200 in 516ms
+ GET /en 200 in 366ms
+ GET /en 200 in 390ms
+ GET /en 200 in 356ms
+ GET /en 200 in 388ms
+ GET /fr 200 in 427ms
+ GET /ar 200 in 497ms
+ ○ Compiling /[locale]/about ...
+ ✓ Compiled /[locale]/about in 1019ms (2937 modules)
+ GET /en/about 200 in 2395ms
+ ○ Compiling /[locale]/services ...
+ ✓ Compiled /[locale]/services in 597ms (2939 modules)
+ GET /en/services 200 in 1532ms
+ ○ Compiling /[locale]/blog ...
+ ✓ Compiled /[locale]/blog in 751ms (2944 modules)
+ GET /en/blog 200 in 1822ms
+ ✓ Compiled /[locale]/blog/[slug] in 494ms (3001 modules)
+ GET /en/blog/how-i-find-winning-products-before-they-go-viral 200 in 1689ms
+ GET /en/blog/tiktok-shop-in-2025 200 in 178ms
+ ○ Compiling /[locale]/case-studies ...
+ ✓ Compiled /[locale]/case-studies in 623ms (3003 modules)
+ GET /en/case-studies 200 in 1651ms
+ ○ Compiling /[locale]/case-studies/[slug] ...
+ ✓ Compiled /[locale]/case-studies/[slug] in 994ms (3006 modules)
+ GET /en/case-studies/fashiondrop-co 200 in 2302ms
+ GET /en/case-studies/trendvault-tiktok-shop 200 in 161ms
+ ○ Compiling /[locale]/contact ...
+ ✓ Compiled /[locale]/contact in 961ms (3011 modules)
+ GET /en/contact 200 in 2060ms

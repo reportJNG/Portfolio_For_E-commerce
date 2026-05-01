@@ -58,21 +58,26 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(37,99,235,0.34),transparent_32%),linear-gradient(180deg,rgba(10,15,30,0.16),rgba(10,15,30,0.92))]" />
 
       <div className="container relative z-10 flex min-h-screen flex-col justify-center pb-20 pt-28">
-        <p className="hero-copy mb-5 w-fit rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/78 backdrop-blur">
+        <p className="hero-copy mb-5 w-fit rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white/80 backdrop-blur">
           {t('eyebrow')}
         </p>
 
-        <h1 className="max-w-5xl overflow-hidden font-display text-[clamp(3.4rem,12vw,9.8rem)] font-extrabold leading-[0.88] tracking-normal text-white">
-          {title.split('').map((char, index) => (
-            <span key={`${char}-${index}`} className="hero-letter inline-block opacity-0">
-              {char === ' ' ? '\u00A0' : char}
+        <h1 className="w-full overflow-hidden font-display text-[clamp(2.35rem,10.8vw,8.9rem)] font-extrabold leading-[0.9] tracking-normal text-white">
+          {title.split(' ').map((word, wordIndex) => (
+            <span key={word} className="inline-block whitespace-nowrap">
+              {word.split('').map((char, charIndex) => (
+                <span key={`${char}-${wordIndex}-${charIndex}`} className="hero-letter inline-block opacity-0">
+                  {char}
+                </span>
+              ))}
+              {wordIndex < title.split(' ').length - 1 ? <span className="hero-letter inline-block opacity-0">&nbsp;</span> : null}
             </span>
           ))}
         </h1>
 
         <div className="mt-8 max-w-3xl">
           <p className="hero-copy font-display text-2xl font-semibold text-accent-glow sm:text-4xl">{t('title')}</p>
-          <p className="hero-copy mt-4 text-lg leading-8 text-white/76 sm:text-xl">{t('tagline')}</p>
+          <p className="hero-copy mt-4 text-lg leading-8 text-white/75 sm:text-xl">{t('tagline')}</p>
         </div>
 
         <motion.div

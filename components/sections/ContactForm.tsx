@@ -48,7 +48,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 rounded-lg border border-white/10 bg-white/8 p-5 backdrop-blur md:p-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 rounded-lg border border-white/10 bg-white/10 p-5 backdrop-blur md:p-6">
       <div className="grid gap-2">
         <Label htmlFor="name" className="text-white">
           {t('name')}

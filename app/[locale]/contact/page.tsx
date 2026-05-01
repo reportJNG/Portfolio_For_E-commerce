@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 import { Contact } from '@/components/sections/Contact';
 import { profile } from '@/lib/data';
@@ -8,8 +8,9 @@ export const metadata = {
   title: 'Contact'
 };
 
-export default function ContactPage({ params }: { params: { locale: Locale } }) {
-  unstable_setRequestLocale(params.locale);
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <main className="bg-white pt-20">

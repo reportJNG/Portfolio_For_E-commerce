@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { ArrowRight } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -11,8 +11,9 @@ export const metadata = {
   title: 'Case Studies'
 };
 
-export default function CaseStudiesPage({ params }: { params: { locale: Locale } }) {
-  unstable_setRequestLocale(params.locale);
+export default async function CaseStudiesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <main className="bg-white pt-28">
@@ -28,11 +29,17 @@ export default function CaseStudiesPage({ params }: { params: { locale: Locale }
             {caseStudies.map((study) => (
               <Link
                 key={study.slug}
-                href={withLocale(params.locale, `/case-studies/${study.slug}`)}
+                href={withLocale(locale, `/case-studies/${study.slug}`)}
                 className="js-stagger-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card-glow"
               >
                 <div className="relative aspect-[16/10]">
-                  <Image src={study.image} alt={`${study.brand} visual`} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image
+                    src={study.image}
+                    alt={`${study.brand} visual`}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="mb-4 flex flex-wrap gap-2">

@@ -27,7 +27,13 @@ export async function BlogPreview() {
               className="js-stagger-card group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card-glow"
             >
               <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
-                <Image src={post.image} alt={post.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
               </div>
               <div className="p-6">
                 <div className="mb-4 flex items-center gap-2">

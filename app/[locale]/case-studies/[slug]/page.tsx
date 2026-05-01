@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -17,16 +17,18 @@ export function generateStaticParams() {
   ]);
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const study = caseStudies.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const study = caseStudies.find((item) => item.slug === slug);
   return {
     title: study ? study.brand : 'Case Study'
   };
 }
 
-export default function CaseStudyPage({ params }: { params: { locale: Locale; slug: string } }) {
-  unstable_setRequestLocale(params.locale);
-  const study = caseStudies.find((item) => item.slug === params.slug);
+export default async function CaseStudyPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const study = caseStudies.find((item) => item.slug === slug);
 
   if (!study) {
     notFound();
@@ -39,7 +41,7 @@ export default function CaseStudyPage({ params }: { params: { locale: Locale; sl
       <section className="section-padding">
         <div className="container">
           <Button asChild variant="outline" className="mb-8 rounded-full">
-            <Link href={withLocale(params.locale, '/case-studies')}>
+            <Link href={withLocale(locale, '/case-studies')}>
               <ArrowLeft className="h-4 w-4" />
               Back to case studies
             </Link>
@@ -51,7 +53,14 @@ export default function CaseStudyPage({ params }: { params: { locale: Locale; sl
               <p className="mt-5 text-xl leading-8 text-slate-600">{study.result}</p>
             </div>
             <div className="relative aspect-[16/11] overflow-hidden rounded-lg border border-slate-200 shadow-glow">
-              <Image src={study.image} alt={`${study.brand} case study`} fill priority className="object-cover" />
+              <Image
+                src={study.image}
+                alt={`${study.brand} case study`}
+                fill
+                priority
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -104,9 +113,9 @@ export default function CaseStudyPage({ params }: { params: { locale: Locale; sl
           <h2 className="font-display text-3xl font-extrabold">Related case studies</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {related.map((item) => (
-              <Link key={item.slug} href={withLocale(params.locale, `/case-studies/${item.slug}`)} className="rounded-lg border border-white/10 bg-white/8 p-5">
+              <Link key={item.slug} href={withLocale(locale, `/case-studies/${item.slug}`)} className="rounded-lg border border-white/10 bg-white/10 p-5">
                 <h3 className="font-display text-2xl font-bold">{item.brand}</h3>
-                <p className="mt-2 text-sm text-white/64">{item.result}</p>
+                <p className="mt-2 text-sm text-white/60">{item.result}</p>
                 <span className="mt-4 flex items-center gap-2 text-sm font-bold text-accent-glow">
                   Read <ArrowRight className="h-4 w-4" />
                 </span>

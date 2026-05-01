@@ -21,7 +21,7 @@ export function SectionHeading({
       <h2 className={cn('font-display text-4xl font-extrabold leading-tight text-balance sm:text-5xl', inverted ? 'text-white' : 'text-primary')}>
         {title}
       </h2>
-      {body ? <p className={cn('mt-4 text-lg leading-8', inverted ? 'text-white/68' : 'text-slate-500')}>{body}</p> : null}
+      {body ? <p className={cn('mt-4 text-lg leading-8', inverted ? 'text-white/70' : 'text-slate-500')}>{body}</p> : null}
     </div>
   );
 }

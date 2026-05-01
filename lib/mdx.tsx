@@ -2,26 +2,6 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import type { ReactNode } from 'react';
 import matter from 'gray-matter';
-import { compileMDX } from 'next-mdx-remote/rsc';
-
-import { cn } from '@/lib/utils';
-
-const components = {
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mt-12 font-display text-3xl font-bold tracking-normal text-primary" {...props} />
-  ),
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-primary" {...props} />
-  ),
-  p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mt-5 text-lg leading-8 text-slate-600" {...props} />
-  ),
-  ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="mt-5 list-disc space-y-3 pl-6 text-lg leading-8 text-slate-600" {...props} />
-  ),
-  li: (props: React.HTMLAttributes<HTMLLIElement>) => <li className="pl-1" {...props} />,
-  strong: (props: React.HTMLAttributes<HTMLElement>) => <strong className="font-bold text-primary" {...props} />
-};
 
 export type MdxPost = {
   frontmatter: {
@@ -40,20 +20,57 @@ export async function getMdxPost(slug: string): Promise<MdxPost | null> {
   try {
     const source = await fs.readFile(filePath, 'utf8');
     const { content: mdxSource, data } = matter(source);
-    const compiled = await compileMDX({
-      source: mdxSource,
-      components,
-      options: {
-        parseFrontmatter: false
-      }
-    });
 
     return {
       frontmatter: data,
-      content: <article className={cn('mx-auto max-w-3xl')}>{compiled.content}</article>,
+      content: <article className="mx-auto max-w-3xl">{renderAuthoredMdx(mdxSource)}</article>,
       raw: mdxSource
     };
   } catch {
     return null;
   }
+}
+
+function renderAuthoredMdx(source: string) {
+  const blocks = source
+    .trim()
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+
+  return blocks.map((block, index) => {
+    if (block.startsWith('### ')) {
+      return (
+        <h3 key={index} className="mt-8 font-display text-2xl font-bold tracking-normal text-primary">
+          {block.replace(/^### /, '')}
+        </h3>
+      );
+    }
+
+    if (block.startsWith('## ')) {
+      return (
+        <h2 key={index} className="mt-12 font-display text-3xl font-bold tracking-normal text-primary">
+          {block.replace(/^## /, '')}
+        </h2>
+      );
+    }
+
+    if (block.startsWith('- ')) {
+      return (
+        <ul key={index} className="mt-5 list-disc space-y-3 pl-6 text-lg leading-8 text-slate-600">
+          {block.split('\n').map((item) => (
+            <li key={item} className="pl-1">
+              {item.replace(/^- /, '')}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    return (
+      <p key={index} className="mt-5 text-lg leading-8 text-slate-600">
+        {block}
+      </p>
+    );
+  });
 }

@@ -10,7 +10,7 @@ export async function Contact() {
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden bg-primary text-white">
-      <div className="absolute inset-0 bg-walid-gradient opacity-35" />
+      <div className="absolute inset-0 bg-walid-gradient opacity-40" />
       <div className="absolute inset-0 premium-grid opacity-50" />
       <div className="container relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div className="js-section-heading">

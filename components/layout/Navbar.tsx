@@ -41,7 +41,7 @@ export function Navbar() {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled ? 'border-b border-slate-200/80 bg-white/82 shadow-sm backdrop-blur-xl' : 'bg-transparent'
+        scrolled ? 'border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-xl' : 'bg-transparent'
       )}
     >
       <div className="container flex h-20 items-center justify-between gap-4">
@@ -61,7 +61,7 @@ export function Navbar() {
               href={withLocale(locale, item.href)}
               className={cn(
                 'rounded-full px-3 py-2 text-sm font-semibold transition',
-                scrolled ? 'text-slate-600 hover:bg-slate-100 hover:text-primary' : 'text-white/78 hover:bg-white/10 hover:text-white'
+                scrolled ? 'text-slate-600 hover:bg-slate-100 hover:text-primary' : 'text-white/80 hover:bg-white/10 hover:text-white'
               )}
             >
               {t(item.label)}

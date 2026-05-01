@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 import { About } from '@/components/sections/About';
 import { BlogPreview } from '@/components/sections/BlogPreview';
@@ -11,8 +11,9 @@ import { Services } from '@/components/sections/Services';
 import { Testimonials } from '@/components/sections/Testimonials';
 import type { Locale } from '@/lib/config';
 
-export default function HomePage({ params }: { params: { locale: Locale } }) {
-  unstable_setRequestLocale(params.locale);
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <main>

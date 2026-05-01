@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 import { Badge } from '@/components/ui/badge';
 import { profile, skillTags, timeline, tools } from '@/lib/data';
@@ -8,8 +8,9 @@ export const metadata = {
   title: 'About'
 };
 
-export default function AboutPage({ params }: { params: { locale: Locale } }) {
-  unstable_setRequestLocale(params.locale);
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <main className="bg-white pt-28">
