@@ -2,7 +2,7 @@
 
 # 🛒 E-Commerce Portfolio
 
-### A clean and modern portfolio website for an e-commerce professional.
+### Clean and modern portfolio website for an e-commerce professional.
 
 <br />
 
@@ -16,15 +16,15 @@
 
 ## ✨ About
 
-**E-Commerce Portfolio** is a clean and responsive personal website built for an e-commerce professional.
+**E-Commerce Portfolio** is a clean, responsive, and modern personal website built for an e-commerce professional.
 
-It presents his profile, skills, services, and experience in a modern and professional way.
+It presents the profile, skills, services, and experience in a professional and elegant way.
 
 ---
 
 ## 🎨 Features
 
-- Clean modern UI
+- Clean and modern UI
 - Fully responsive design
 - Professional personal branding
 - Skills and services section
@@ -35,8 +35,6 @@ It presents his profile, skills, services, and experience in a modern and profes
 
 ## 🛠️ Tech Stack
 
-<div align="center">
-
 | Technology | Usage |
 | ---------- | ----- |
 | **Next.js** | Website framework |
@@ -44,14 +42,19 @@ It presents his profile, skills, services, and experience in a modern and profes
 | **Tailwind CSS** | Styling |
 | **HTML / CSS** | Structure and design |
 
-</div>
-
 ---
 
 ## 🚀 Getting Started
 
+Install dependencies:
+
 ```bash
 npm install
+```
+
+Run the development server:
+
+```bash
 npm run dev
 ```
 
