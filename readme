@@ -16,20 +16,19 @@
 
 ## ✨ About
 
-**E-Commerce Portfolio** is a responsive personal website built to present an e-commerce professional in a clean, modern, and elegant way.
+**E-Commerce Portfolio** is a clean and responsive personal website built for an e-commerce professional.
 
-The website highlights his profile, experience, skills, services, and professional work with a strong visual identity.
+It presents his profile, skills, services, and experience in a modern and professional way.
 
 ---
 
 ## 🎨 Features
 
-- Modern and clean UI design
-- Fully responsive layout
-- Professional hero section
-- Skills and services showcase
+- Clean modern UI
+- Fully responsive design
+- Professional personal branding
+- Skills and services section
 - Smooth user experience
-- Portfolio-style presentation
 - Built with modern web technologies
 
 ---
@@ -42,7 +41,7 @@ The website highlights his profile, experience, skills, services, and profession
 | ---------- | ----- |
 | **Next.js** | Website framework |
 | **React** | UI components |
-| **Tailwind CSS** | Styling and layout |
+| **Tailwind CSS** | Styling |
 | **HTML / CSS** | Structure and design |
 
 </div>
@@ -54,14 +53,28 @@ The website highlights his profile, experience, skills, services, and profession
 ```bash
 npm install
 npm run dev
+```
 
-Open:
+Open the project:
 
+```bash
 http://localhost:3000
-📌 Project Type
+```
+
+---
+
+## 📌 Project Type
+
+```txt
 Portfolio Website
 E-Commerce Professional
 Personal Branding
+```
+
+---
+
 <div align="center">
-Designed with passion for a professional digital presence.
-</div> ```
+
+### Designed with passion for a professional digital presence.
+
+</div>
