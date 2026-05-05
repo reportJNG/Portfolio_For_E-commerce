@@ -1,0 +1,67 @@
+<div align="center">
+
+# 🛒 E-Commerce Portfolio
+
+### A clean and modern portfolio website for an e-commerce professional.
+
+<br />
+
+<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/React-149ECA?style=for-the-badge&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+
+</div>
+
+---
+
+## ✨ About
+
+**E-Commerce Portfolio** is a responsive personal website built to present an e-commerce professional in a clean, modern, and elegant way.
+
+The website highlights his profile, experience, skills, services, and professional work with a strong visual identity.
+
+---
+
+## 🎨 Features
+
+- Modern and clean UI design
+- Fully responsive layout
+- Professional hero section
+- Skills and services showcase
+- Smooth user experience
+- Portfolio-style presentation
+- Built with modern web technologies
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+| Technology | Usage |
+| ---------- | ----- |
+| **Next.js** | Website framework |
+| **React** | UI components |
+| **Tailwind CSS** | Styling and layout |
+| **HTML / CSS** | Structure and design |
+
+</div>
+
+---
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
+
+Open:
+
+http://localhost:3000
+📌 Project Type
+Portfolio Website
+E-Commerce Professional
+Personal Branding
+<div align="center">
+Designed with passion for a professional digital presence.
+</div> ```
